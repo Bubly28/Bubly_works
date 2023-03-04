@@ -42,15 +42,10 @@ The dataset is passed as an argument for plotting.
 def piechart(data_pie):
     piedata = data_pie  # Dataset for plotting pie chart is stored in new variable
     print(piedata)  # Printing the dataset that is used for pie chart plotting
-    plt.figure(figsize=(4,5))
-    plt.subplot2grid((2,1), (0, 0))  # Subploting
+    plt.figure(figsize=(5,5))
     plt.pie(piedata["2010"], labels=piedata["Countries"], autopct="%1.1f%%")
-    # Title for the subplot
+    # Title for the pie chart
     plt.title("Internet Users (per 100 people) in 2010")
-    plt.subplot2grid((2,1), (1, 0))  # Subploting
-    plt.pie(piedata["2015"], labels=piedata["Countries"], autopct="%1.1f%%")
-    # title for the subplot
-    plt.title("Internet Users (per 100 people) in 2015")
     plt.savefig("Internet Users - Pie Chart.png")
     plt.show()
     return  # Return statement is used at the end of a function
