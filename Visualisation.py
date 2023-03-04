@@ -29,7 +29,29 @@ def lineplot(data_1, countries):
     plt.title("Adolescent Fertility Rate (births per 1000 women ages 15 -19)")
     plt.legend()
     # Saving the line plot as png
-    plt.savefig("Fertility Rate - Line Plot.png")
+    plt.savefig("Fertility Rate_Line Plot.png")
+    plt.show()
+    return  # Return statement is used at the end of a function
+
+'''
+The following function is used to create a pie chart.
+The dataset is passed as an argument for plotting.
+'''
+
+
+def piechart(data_pie):
+    piedata = data_pie  # Dataset for plotting pie chart is stored in new variable
+    print(piedata)  # Printing the dataset that is used for pie chart plotting
+    plt.figure(figsize=(4,5))
+    plt.subplot2grid((2,1), (0, 0))  # Subploting
+    plt.pie(piedata["2010"], labels=piedata["Countries"], autopct="%1.1f%%")
+    # Title for the subplot
+    plt.title("Internet Users (per 100 people) in 2010")
+    plt.subplot2grid((2,1), (1, 0))  # Subploting
+    plt.pie(piedata["2015"], labels=piedata["Countries"], autopct="%1.1f%%")
+    # title for the subplot
+    plt.title("Internet Users (per 100 people) in 2015")
+    plt.savefig("Internet Users - Pie Chart.png")
     plt.show()
     return  # Return statement is used at the end of a function
 
@@ -37,6 +59,10 @@ def lineplot(data_1, countries):
 if __name__ == "__main__":
     #Following code is used to read the dataset in excel form for line plotting
     data_line = pd.read_excel("data_fertility_rate.xlsx")
+    #Following code is used to read the dataset in excel form for plotting pie chart
+    data_pie = pd.read_excel("data_internet_users.xlsx")
 
     #Calling the lineplot function
     lineplot(data_line, ["China", "India", "Kuwait", "Pakistan"])
+    #Calling the piechart function
+    piechart(data_pie)
