@@ -51,13 +51,42 @@ def piechart(data_pie):
     return  # Return statement is used at the end of a function
 
 
+'''
+The following function is used to create a bar plot.
+The dataset and a list containing headers of the columns other than Year are passed as arguments
+'''
+
+
+def barplot(data_bar, gender):
+    data3 = data_bar  # Dataset for plotting bar graph is stored in a new variable
+    print(data3)  # Printing the dataset that is used for bar graph plotting
+    plt.figure(figsize=(7,6))
+    for gen in gender:
+        plt.bar(data3["Year"], data3[gen], label=gen)
+    plt.title("Bar Plot of Suicide Mortality Rate")  # Title for the graph
+    plt.ylim()
+    plt.xlim(1999, 2020)  # Setting the limit for the x-axis of the graph
+    plt.xticks(data3["Year"], labels=data3["Year"], rotation='vertical')
+    plt.xlabel("Year")  # Labelling x-axis
+    plt.ylabel("Suicide Mortality Rate")  # Labelling y-axis
+    plt.legend()
+    plt.savefig("Suicide Mortality - Bar Graph.png")
+    plt.show()
+    return  # Return statement is used at the end of a function
+
+
 if __name__ == "__main__":
     #Following code is used to read the dataset in excel form for line plotting
     data_line = pd.read_excel("data_fertility_rate.xlsx")
     #Following code is used to read the dataset in excel form for plotting pie chart
     data_pie = pd.read_excel("data_internet_users.xlsx")
+    #Following code is used to read the dataset in excel form for plotting bar graph
+    data_bar = pd.read_excel("data_mortality_rate.xlsx")
+
 
     #Calling the lineplot function
     lineplot(data_line, ["China", "India", "Kuwait", "Pakistan"])
     #Calling the piechart function
     piechart(data_pie)
+    #Calling the bar graph function
+    barplot(data_bar, ["SMR_male", "SMR_female"])
