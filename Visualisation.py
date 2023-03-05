@@ -33,6 +33,7 @@ def lineplot(data_1, countries):
     plt.show()
     return  # Return statement is used at the end of a function
 
+
 '''
 The following function is used to create a pie chart.
 The dataset is passed as an argument for plotting.
@@ -42,7 +43,7 @@ The dataset is passed as an argument for plotting.
 def piechart(data_pie):
     piedata = data_pie  # Dataset for plotting pie chart is stored in new variable
     print(piedata)  # Printing the dataset that is used for pie chart plotting
-    plt.figure(figsize=(5,5))
+    plt.figure(figsize=(5, 5))
     plt.pie(piedata["2010"], labels=piedata["Countries"], autopct="%1.1f%%")
     # Title for the pie chart
     plt.title("Internet Users (per 100 people) in 2010")
@@ -60,7 +61,7 @@ The dataset and a list containing headers of the columns other than Year are pas
 def barplot(data_bar, gender):
     data3 = data_bar  # Dataset for plotting bar graph is stored in a new variable
     print(data3)  # Printing the dataset that is used for bar graph plotting
-    plt.figure(figsize=(7,6))
+    plt.figure(figsize=(7, 6))
     for gen in gender:
         plt.bar(data3["Year"], data3[gen], label=gen)
     plt.title("Bar Plot of Suicide Mortality Rate")  # Title for the graph
@@ -82,7 +83,6 @@ if __name__ == "__main__":
     data_pie = pd.read_excel("data_internet_users.xlsx")
     #Following code is used to read the dataset in excel form for plotting bar graph
     data_bar = pd.read_excel("data_mortality_rate.xlsx")
-
 
     #Calling the lineplot function
     lineplot(data_line, ["China", "India", "Kuwait", "Pakistan"])
